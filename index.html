@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MetaFrost AI Platform - Enterprise AI Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --secondary: #818CF8;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #f5f7ff 0%, #ffffff 100%);
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .platform-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .platform-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+            background: white;
+            transition: all 0.3s ease;
+        }
+
+        .platform-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .floating-icons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .floating-icon {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 6s infinite;
+        }
+
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .cursor-glow {
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle at center, var(--primary) 0%, transparent 70%);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.5;
+            mix-blend-mode: screen;
+        }
+
+        .number-counter {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .use-case-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .use-case-card:hover {
+            transform: scale(1.05);
+        }
+
+        .integration-logo {
+            filter: grayscale(100%);
+            opacity: 0.6;
+            transition: all 0.3s ease;
+        }
+
+        .integration-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: var(--primary);
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: -4px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--primary);
+        }
+
+        .cta-gradient {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        }
+    </style>
+</head>
+
+<body class="overflow-x-hidden" onload="AOS.init()">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/80 backdrop-blur-lg z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="/" class="text-2xl font-bold">MetaFrost.ai</a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#platform" class="hover:text-indigo-600 transition-colors">Platform</a>
+                    <a href="#solutions" class="hover:text-indigo-600 transition-colors">Solutions</a>
+                    <a href="#use-cases" class="hover:text-indigo-600 transition-colors">Use Cases</a>
+                    <a href="#pricing" class="hover:text-indigo-600 transition-colors">Pricing</a>
+                    <button class="bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transition-all">
+                        Get Started
+                    </button>
+                </div>
+                <button class="md:hidden text-2xl">
+                    <i class="bi bi-list"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient min-h-screen flex items-center pt-20">
+        <div class="floating-icons">
+            <div class="floating-icon" style="left: 10%; top: 15%;"><i class="bi bi-cpu text-4xl"></i></div>
+            <div class="floating-icon" style="left: 70%; top: 25%;"><i class="bi bi-graph-up text-4xl"></i></div>
+            <div class="floating-icon" style="left: 30%; top: 65%;"><i class="bi bi-people text-4xl"></i></div>
+            <div class="floating-icon" style="left: 50%; top: 75%;"><i class="bi bi-gear text-4xl"></i></div>
+            <div class="floating-icon" style="left: 20%; top: 90%;"><i class="bi bi-lightning text-4xl"></i></div>
+        </div>
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+                <div class="flex-1" data-aos="fade-right">
+                    <h1 class="text-5xl md:text-6xl font-bold mb-8 leading-tight">
+                        Transform Your Enterprise with
+                        <span class="gradient-text" id="typed-text"></span>
+                    </h1>
+                    <p class="text-xl text-gray-600 mb-12">
+                        Harness the power of our advanced Meta Brain technology to drive innovation,
+                        optimize operations, and unlock unprecedented growth opportunities.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <button class="bg-indigo-600 text-white px-8 py-4 rounded-lg hover:bg-indigo-700 transition-all hover:scale-105">
+                            Request Demo
+                        </button>
+                        <button class="border-2 border-indigo-600 text-indigo-600 px-8 py-4 rounded-lg hover:bg-indigo-50 transition-all">
+                            Watch Video <i class="bi bi-play-circle ml-2"></i>
+                        </button>
+                    </div>
+                    <div class="flex items-center space-x-8 mt-12">
+                        <div>
+                            <div class="number-counter" data-target="98">0</div>
+                            <p class="text-gray-600">Success Rate</p>
+                        </div>
+                        <div>
+                            <div class="number-counter" data-target="500">0</div>
+                            <p class="text-gray-600">Enterprise Clients</p>
+                        </div>
+                        <div>
+                            <div class="number-counter" data-target="24">0</div>
+                            <p class="text-gray-600">Global Markets</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-1" data-aos="fade-left">
+                    <lottie-player src="https://assets2.lottiefiles.com/packages/lf20_m9zragkc.json" background="transparent"
+                        speed="1" style="width: 100%; height: 400px;" loop autoplay></lottie-player>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platform Features -->
+    <section id="platform" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">The MetaFrost Platform</h2>
+                <p class="text-xl text-gray-600">A comprehensive suite of AI-powered tools for enterprise transformation</p>
+            </div>
+            <div class="platform-grid">
+                <div class="platform-card p-8" data-aos="fade-up">
+                    <div class="text-4xl text-indigo-600 mb-4">
+                        <i class="bi bi-cpu"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Meta Brain Core</h3>
+                    <p class="text-gray-600">Advanced neural networks that adapt and evolve with your business needs</p>
+                    <ul class="mt-4 space-y-2">
+                        <li class="flex items-center">
+                            <i class="bi bi-check-circle text-green-500 mr-2"></i>
+                            Self-learning algorithms
+                        </li>
+                        <li class="flex items-center">
+                            <i class="bi bi-check-circle text-green-500 mr-2"></i>
+                            Real-time processing
+                        </li>
+                        <li class="flex items-center">
+                            <i class="bi bi-check-circle text-green-500 mr-2"></i>
+                            Scalable architecture
+                        </li>
+                    </ul>
+                </div>
+                <div class="platform-card p-8" data-aos="fade-up">
+                    <div class="text-4xl text-indigo-600 mb-4">
+                        <i class="bi bi-box-arrow-in-up-right"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Integration Hub</h3>
+                    <p class="text-gray-600">Seamlessly connect with industry-leading applications and APIs</p>
+                    <ul class="mt-4 space-y-2">
+                        <li class="flex items-center">
+                            <i class="bi bi-check-circle text-green-500 mr-2"></i>
+                            API and SDK support
+                        </li>
+                        <li class="flex items-center">
+                            <i class="bi bi-check-circle text-green-500 mr-2"></i>
+                            Cross-platform compatibility
+                        </li>
+                    </ul>
+                </div>
+                <div class="platform-card p-8" data-aos="fade-up">
+                    <div class="text-4xl text-indigo-600 mb-4">
+                        <i class="bi bi-shield-lock"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Robust Security</h3>
+                    <p class="text-gray-600">End-to-end encryption to safeguard your data and privacy</p>
+                    <ul class="mt-4 space-y-2">
+                        <li class="flex items-center">
+                            <i class="bi bi-check-circle text-green-500 mr-2"></i>
+                            Data encryption
+                        </li>
+                        <li class="flex items-center">
+                            <i class="bi bi-check-circle text-green-500 mr-2"></i>
+                            Compliance with industry standards
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section id="use-cases" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16">Enterprise Use Cases</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="use-case-card bg-white p-6 rounded-lg shadow-lg" data-aos="fade-up">
+                    <div class="text-3xl text-indigo-600 mb-4">
+                        <i class="bi bi-graph-up"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Predictive Analytics</h3>
+                    <p class="text-gray-600">Forecast market trends and customer behavior with 99% accuracy</p>
+                </div>
+                <div class="use-case-card bg-white p-6 rounded-lg shadow-lg" data-aos="fade-up">
+                    <div class="text-3xl text-indigo-600 mb-4">
+                        <i class="bi bi-bar-chart-line"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Customer Insights</h3>
+                    <p class="text-gray-600">Gain deep insights into customer preferences and behavior</p>
+                </div>
+                <div class="use-case-card bg-white p-6 rounded-lg shadow-lg" data-aos="fade-up">
+                    <div class="text-3xl text-indigo-600 mb-4">
+                        <i class="bi bi-credit-card"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Financial Forecasting</h3>
+                    <p class="text-gray-600">Optimize financial planning with precision forecasts</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integration Partners -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16">Trusted By Industry Leaders</h2>
+            <div class="grid grid-cols-2 md:grid-cols-6 gap-8 items-center">
+                <img src="https://via.placeholder.com/150x100" alt="Partner Logo" class="integration-logo">
+                <img src="https://via.placeholder.com/150x100" alt="Partner Logo" class="integration-logo">
+                <img src="https://via.placeholder.com/150x100" alt="Partner Logo" class="integration-logo">
+                <img src="https://via.placeholder.com/150x100" alt="Partner Logo" class="integration-logo">
+                <img src="https://via.placeholder.com/150x100" alt="Partner Logo" class="integration-logo">
+                <img src="https://via.placeholder.com/150x100" alt="Partner Logo" class="integration-logo">
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline / Roadmap -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-16">Innovation Timeline</h2>
+            <div class="max-w-3xl mx-auto">
+                <div class="timeline-item" data-aos="fade-up">
+                    <h3 class="text-xl font-bold">Launch of Meta Brain 2.0</h3>
+                    <p class="text-gray-600">Enhanced cognitive capabilities and improved processing speed</p>
+                </div>
+                <div class="timeline-item" data-aos="fade-up">
+                    <h3 class="text-xl font-bold">Introduction of AI Tools</h3>
+                    <p class="text-gray-600">Launch of various AI tools for different industries</p>
+                </div>
+                <div class="timeline-item" data-aos="fade-up">
+                    <h3 class="text-xl font-bold">Global Expansion</h3>
+                    <p class="text-gray-600">MetaFrost goes global, serving clients in over 24 countries</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-gradient py-20 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-8">Ready to Transform Your Enterprise?</h2>
+            <p class="text-xl mb-12">Join the AI revolution with MetaFrost.ai</p>
+            <button class="bg-white text-indigo-600 px-8 py-4 rounded-lg hover:bg-gray-100 transition-all hover:scale-105">
+                Schedule a Demo
+            </button>
+        </div>
+    </section>
+
+    <script>
+        // Initialize AOS
+        AOS.init();
+
+        // Typing animation
+        new Typed('#typed-text', {
+            strings: ['Meta Brain AI', 'Intelligent Analytics', 'Enterprise Solutions', 'Future of Business'],
+            typeSpeed: 50,
+            backSpeed: 30,
+            loop: true
+        });
+
+        // Number counter animation
+        const counters = document.querySelectorAll('.number-counter');
+        counters.forEach(counter => {
+            const target = parseInt(counter.getAttribute('data-target'));
+            let count = 0;
+            const speed = 2000 / target; // Adjust animation speed
+
+            const updateCount = () => {
+                if (count < target) {
+                    count++;
+                    counter.innerText = count;
+                    setTimeout(updateCount, speed);
+                }
+            };
+
+            updateCount();
+        });
+
+        // Cursor glow effect
+        const cursor = document.createElement('div');
+        cursor.classList.add('cursor-glow');
+        document.body.appendChild(cursor);
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        // Add floating icons
+        const addFloatingIcons = () => {
+            const icons = ['cpu', 'graph-up', 'cloud', 'gear', 'lightning'];
+            const container = document.querySelector('.floating-icons');
+
+            icons.forEach((icon, index) => {
+                const div = document.createElement('div');
+                div.classList.add('floating-icon');
+                div.innerHTML = `<i class="bi bi-${icon} text-4xl"></i>`;
+                div.style.left = `${Math.random() * 100}%`;
+                div.style.top = `${Math.random() * 100}%`;
+                div.style.animationDelay = `${index * 0.5}s`;
+                container.appendChild(div);
+            });
+        };
+
+        addFloatingIcons();
+    </script>
+<script>document.body.addEventListener('wheel', e => { if (!e.ctrlKey) return; e.preventDefault(); return }, { passive: false })</script>
+	</body>
+
+</html>
